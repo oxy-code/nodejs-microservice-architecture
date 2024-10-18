@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - 'main'
+    paths:
+      - 'create-project/**'
+      - '.github/workflows/create-project.yml'
 
 jobs:
   build:
