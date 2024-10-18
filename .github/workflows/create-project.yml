@@ -3,10 +3,13 @@ name: CreateProjectAPI
 on:
   push:
     branches:
-      - 'main'
+      - main
     paths:
       - 'create-project/**'
       - '.github/workflows/create-project.yml'
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -36,6 +39,7 @@ jobs:
       working-directory: ./create-project
 
   docker:
+    if: ${{ github.event_name == "push" }}
     needs: build
     name: Docker Build and Push
     runs-on: ubuntu-latest
