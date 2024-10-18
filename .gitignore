@@ -1,0 +1,7 @@
+# Ignore all the node_modules from every microservice directory
+*/node_modules/
+
+# Ignore all the test coverage reports from local scan
+*/coverage
+
+*/.env

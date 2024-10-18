@@ -1,0 +1,22 @@
+services:
+  create-project-api:
+    image: veludeveloper/create-project-api
+    container_name: create-project-api
+    environment:
+      - PORT=3000
+    env_file: ./microservices.env
+    networks:
+      - microservices_network
+
+  reverse-proxy:
+    image: veludeveloper/nginx-proxy
+    container_name: api-proxy
+    restart: always
+    networks:
+      - microservices_network
+    ports:
+      - "80:80"
+
+networks:
+  microservices_network:
+    driver: bridge
