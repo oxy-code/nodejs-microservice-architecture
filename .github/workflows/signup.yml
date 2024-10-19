@@ -1,12 +1,12 @@
-name: CreateProjectAPI
+name: SignUpAPI
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'create-project/**'
-      - '.github/workflows/create-project.yml'
+      - 'signup/**'
+      - '.github/workflows/signup.yml'
   pull_request:
     branches:
       - main
@@ -28,15 +28,15 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: './create-project/package-lock.json'
+        cache-dependency-path: './signup/package-lock.json'
 
     - name: Install Dependencies
       run: npm install
-      working-directory: ./create-project
+      working-directory: ./signup
 
     - name: Unit Test & Coverage
       run: npm run test --if-present
-      working-directory: ./create-project
+      working-directory: ./signup
 
   docker:
     needs: build
@@ -60,7 +60,7 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v6
         with:
-          context: ./create-project
-          file: ./create-project/Dockerfile
+          context: ./signup
+          file: ./signup/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/create-project-api:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/signup-api:latest

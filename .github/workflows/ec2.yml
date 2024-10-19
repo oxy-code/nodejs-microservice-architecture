@@ -2,7 +2,7 @@ name: AWS-EC2 Instance CD
 
 on:
   workflow_run:
-    workflows: [CreateProjectAPI, NginxReverseProxy]
+    workflows: [SignUpAPI, CreateProjectAPI, NginxReverseProxy]
     types: [completed]
     branches:
       - 'main'
@@ -34,8 +34,5 @@ jobs:
             docker compose up -d
             docker image prune -af
           # Comment for Send-Command
-          comment: docker-compose.yml file re-pulls newer versions of book-portal images and runs them on the instance.
-      
-      # Catch SSM outputs
-      - name: Get the outputs
-        run: echo "The Command id is ${{ steps.ssm.outputs.command-id }}"
+          comment: docker-compose.yml file re-pulls newer versions of images and runs them on the instance.
+
