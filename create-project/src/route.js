@@ -1,4 +1,5 @@
 const express = require('express');
+const { Logger } = require('@oxycode/express-utilities');
 const Router = express.Router();
 const ValidateInput = require('./validator');
 const DAO = require('./dao');
@@ -23,6 +24,7 @@ Router.post('/projects', async (req, res, next) => {
     }
     catch(e) {
         if (e.message === 'INVALID_PAYLOAD') {
+            Logger.error('Invalid Payload', e);
             res.status(400).json({
                 message: 'Invalid Payload',
                 details: e.cause
