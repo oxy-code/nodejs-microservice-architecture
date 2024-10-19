@@ -1,12 +1,14 @@
 const { PrismaClient } = require('@prisma/client');
 const { createClient: createRedisClient } = require('redis');
 const { Logger } = require('@oxycode/express-utilities');
+const bcrypt = require('bcrypt');
 
 const redisLogger = Logger.child({ label: 'redis' });
 const prisma = new PrismaClient({
     errorFormat: process.env.NODE_ENV !== 'production' ? 'colorless' : 'minimal'
 });
 const REDIS_USER_EMAILS_KEY = 'users:emails';
+const SALT_ROUNDS = 10;
 const client = createRedisClient({
     socket: {
         host: process.env.REDIS_HOST
@@ -24,7 +26,9 @@ const client = createRedisClient({
 async function registerUser(data) {
     try {
         await client.connect();
-        await prisma.user.create({ data });
+        const { password, ...user } = data;
+        user.password = bcrypt.hashSync(password, SALT_ROUNDS);
+        await prisma.user.create({ data: user });
         await prisma.$disconnect();
         // Using Set type available in redis, which will store only unique data
         // for more - https://redis.io/docs/latest/develop/data-types/sets/
