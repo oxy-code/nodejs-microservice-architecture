@@ -1,6 +1,6 @@
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient({
-    errorFormat: process.env.DEBUG ? 'colorless' : 'minimal'
+    errorFormat: process.env.NODE_ENV !== 'production' ? 'colorless' : 'minimal'
 });
 
 /**

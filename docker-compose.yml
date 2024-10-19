@@ -1,14 +1,28 @@
 services:
   create-project-api:
+    # build: ./create-project
     image: veludeveloper/create-project-api
     container_name: create-project-api
+    env_file: ./microservices.env
     environment:
       - PORT=3000
-    env_file: ./microservices.env
     networks:
       - microservices_network
 
+  signup-api:
+    # build: ./signup
+    image: veludeveloper/signup-api
+    container_name: signup-api
+    env_file: ./microservices.env
+    environment:
+      - PORT=3001
+    networks:
+      - microservices_network
+    depends_on:
+      - redis-cache
+
   reverse-proxy:
+    # build: ./nginx-proxy
     image: veludeveloper/nginx-proxy
     container_name: api-proxy
     restart: always
@@ -16,7 +30,27 @@ services:
       - microservices_network
     ports:
       - "80:80"
+    depends_on:
+      - signup-api
+      - create-project-api
+  
+  redis-cache:
+    image: redis:alpine
+    container_name: redis-cache
+    env_file: ./microservices.env
+    restart: always
+    ports:
+      - '6379:6379'
+    command: /bin/sh -c 'redis-server --save 60 1 --loglevel warning --requirepass $$REDIS_PASSWORD'
+    volumes: 
+      - cache:/data
+    networks:
+      - microservices_network
 
 networks:
   microservices_network:
     driver: bridge
+
+volumes:
+  cache:
+    driver: local
