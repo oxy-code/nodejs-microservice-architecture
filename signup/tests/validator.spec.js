@@ -8,36 +8,53 @@ describe('Validator', ()=>{
         expect(() => ValidateInput(testData)).toThrow('INVALID_PAYLOAD');
     });
 
-    it('should throws an error for missing title', () => {
+    it('should throws an error for missing name', () => {
         const testData = {
-            description: 'mock description'
+            email: 'mockemail@dot.com',
+            password: 'mockpassword'
         };
         try {
             ValidateInput(testData);
         }
         catch(e) {
             expect(e.message).toBe('INVALID_PAYLOAD');
-            expect(e.cause).toContainEqual({"keyword": "required", "message": "must have required property 'title'", "params": {"missingProperty": "title"}})
+            expect(e.cause).toContainEqual({"keyword": "required", "message": "must have required property 'name'", "params": {"missingProperty": "name"}})
         }
     });
 
-    it('should throws an error for missing description', () => {
+    it('should throws an error for missing email', () => {
         const testData = {
-            title: 'mock title'
+            name: 'mock name',
+            password: 'mockpassword'
         };
         try {
             ValidateInput(testData);
         }
         catch(e) {
             expect(e.message).toBe('INVALID_PAYLOAD');
-            expect(e.cause).toContainEqual({"keyword": "required", "message": "must have required property 'description'", "params": {"missingProperty": "description"}})
+            expect(e.cause).toContainEqual({"keyword": "required", "message": "must have required property 'email'", "params": {"missingProperty": "email"}})
+        }
+    });
+
+    it('should throws an error for missing password', () => {
+        const testData = {
+            name: 'mock name',
+            email: 'mockemail@dot.com'
+        };
+        try {
+            ValidateInput(testData);
+        }
+        catch(e) {
+            expect(e.message).toBe('INVALID_PAYLOAD');
+            expect(e.cause).toContainEqual({"keyword": "required", "message": "must have required property 'password'", "params": {"missingProperty": "password"}})
         }
     });
 
     it('should return true for valid input', () => {
         const testData = {
-            title: 'mock title',
-            description: 'mock description'
+            name: 'mock name',
+            email: 'mockemail@dot.com',
+            password: 'mockpassword'
         };
         const valid = ValidateInput(testData);
         expect(valid).toBeTruthy();

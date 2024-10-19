@@ -33,6 +33,7 @@ jobs:
             docker compose pull
             docker compose up -d
             docker image prune -af
+            docker compose ls >> $GITHUB_STEP_SUMMARY
           # Comment for Send-Command
           comment: docker-compose.yml file re-pulls newer versions of images and runs them on the instance.
 
