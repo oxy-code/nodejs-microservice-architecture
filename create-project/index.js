@@ -3,13 +3,17 @@ const app = express();
 const PORT = process.env.PORT;
 const SERVICE_NAME = require('./package.json').name;
 const v1Router = require('./src/route');
-const { RequestTracking, Logger } = require('@oxycode/express-utilities');
+const { RequestTracking, Logger, JWT } = require('@oxycode/express-utilities');
 
 // json body parser
 app.use(express.json());
 
-// Request Tracking Middleware
-app.use(RequestTracking);
+/**
+ * Custom Middlewares
+ * 1. RequestTracking - adding unique guid in response header
+ * 2. JWT.authGuard - verify jwt token & guard all the routes
+ */
+app.use(RequestTracking, JWT.authGuard);
 
 app.use('/v1', v1Router);
 

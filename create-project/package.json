@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@oxycode/express-utilities": "^0.0.6",
+    "@oxycode/express-utilities": "^0.0.7",
     "@prisma/client": "^5.21.0",
     "ajv": "^8.17.1",
     "express": "^4.21.1"
