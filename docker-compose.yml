@@ -50,6 +50,16 @@ services:
       - PORT=3004
     networks:
       - microservices_network
+  
+  update-task-api:
+    # build: ./update-task
+    image: veludeveloper/update-task-api
+    container_name: update-task-api
+    env_file: ./microservices.env
+    environment:
+      - PORT=3005
+    networks:
+      - microservices_network
 
   update-profile-api:
     # build: ./update-profile
