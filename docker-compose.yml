@@ -41,6 +41,16 @@ services:
     networks:
       - microservices_network
 
+  get-tasks-api:
+    # build: ./get-tasks
+    image: veludeveloper/get-tasks-api
+    container_name: get-tasks-api
+    env_file: ./microservices.env
+    environment:
+      - PORT=3008
+    networks:
+      - microservices_network
+
   reverse-proxy:
     # build: ./nginx-proxy
     image: veludeveloper/nginx-proxy
