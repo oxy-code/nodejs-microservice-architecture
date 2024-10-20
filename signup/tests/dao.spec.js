@@ -6,6 +6,7 @@ const mockRedisClient = {
     sAdd: jest.fn(),
     disconnect: jest.fn()
 };
+const mockHashSync = jest.fn();
 /**
  * Below code mocks @prisma/client package
  * and returns only mocked client which
@@ -28,13 +29,23 @@ jest.mock('redis', () => ({
     createClient: jest.fn().mockReturnValue({
         on: jest.fn().mockReturnValue(mockRedisClient),
     })
-}))
+}));
+
+jest.mock('bcrypt', ()=>({
+    hashSync: mockHashSync
+}));
 
 const DAO = require('../src/dao');
 
 describe('DAO', () => {
     const mockEmail = 'mockemail@dot.com';
     const mockCacheKey = 'users:emails';
+    const mockHashedPass = '...hashed...';
+    const testData = {
+        name: 'mock user',
+        email: mockEmail,
+        password: mockHashedPass
+    };
 
     beforeEach(()=>{
         mockRedisClient.connect.mockResolvedValue('');
@@ -68,12 +79,8 @@ describe('DAO', () => {
     });
 
     it('should create a user data using prisma client', async()=>{
-        const testData = {
-            name: 'mock user',
-            email: mockEmail,
-            password: 'mockpassword'
-        };
         mockPrismaCreate.mockResolvedValueOnce({});
+        mockHashSync.mockReturnValueOnce(mockHashedPass);
         await DAO.registerUser(testData);
         expect(mockRedisClient.connect).toHaveBeenCalled();
         expect(mockPrismaCreate).toHaveBeenCalledWith({data: testData});
@@ -83,10 +90,8 @@ describe('DAO', () => {
     });
 
     it('should throw an error while creating an user with invalid data using prisma client', async()=>{
-        const testData = {
-            unknown: 'invalid data',
-        };
         const error = new Error('Invalid Data');
+        mockHashSync.mockReturnValueOnce(mockHashedPass);
         mockPrismaCreate.mockRejectedValueOnce(error);
         try {
             await DAO.registerUser(testData)
