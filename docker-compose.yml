@@ -41,6 +41,16 @@ services:
     networks:
       - microservices_network
 
+  delete-task-api:
+    # build: ./delete-task
+    image: veludeveloper/delete-task-api
+    container_name: delete-task-api
+    env_file: ./microservices.env
+    environment:
+      - PORT=3004
+    networks:
+      - microservices_network
+
   get-tasks-api:
     # build: ./get-tasks
     image: veludeveloper/get-tasks-api

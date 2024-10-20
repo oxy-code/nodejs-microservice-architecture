@@ -15,6 +15,7 @@ It uses cloud by leveraging freely available resources of AWS and also using Git
 |   `GET /v1/tasks`   |   [![GetTasksAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-tasks.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-tasks.yml) |
 |   `GET /v1/projects`   |   [![GetProjectsAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-projects.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-projects.yml) |
 |   `GET /projects/:id` |   [![GetProjectsByIdAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-project-by-id.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-project-by-id.yml) |
+|   `DELETE /tasks/:id` |   [![DeleteTaskAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/delete-task.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/delete-task.yml) |
 
 |   Application |   Status  |
 |   ----------- |   ------  |
