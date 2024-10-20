@@ -8,14 +8,16 @@ It uses cloud by leveraging freely available resources of AWS and also using Git
 
 |   Endpoints   |   Status  |
 |   -------     |   ------  |
-|   `POST /v1/projects`  |   [![CreateProjectAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-project.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-project.yml)  |
 |   `POST /v1/users`   |   [![SignUp API](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/signup.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/signup.yml) |
 |   `POST /v1/auth/login`   |   [![LoginAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/login.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/login.yml) |
 |   `POST /v1/tasks`   |   [![CreateTaskAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-task.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-task.yml) |
 |   `GET /v1/tasks`   |   [![GetTasksAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-tasks.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-tasks.yml) |
+|   `DELETE /v1/tasks/:id` |   [![DeleteTaskAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/delete-task.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/delete-task.yml) |
+|   `POST /v1/projects`  |   [![CreateProjectAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-project.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-project.yml)  |
 |   `GET /v1/projects`   |   [![GetProjectsAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-projects.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-projects.yml) |
-|   `GET /projects/:id` |   [![GetProjectsByIdAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-project-by-id.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-project-by-id.yml) |
-|   `DELETE /tasks/:id` |   [![DeleteTaskAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/delete-task.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/delete-task.yml) |
+|   `GET /v1/projects/:id` |   [![GetProjectsByIdAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-project-by-id.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-project-by-id.yml) |
+|   `GET /v1/projects/:id/tasks` |   [![GetProjectsByIdAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-project-by-id.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-project-by-id.yml) |
+
 
 |   Application |   Status  |
 |   ----------- |   ------  |

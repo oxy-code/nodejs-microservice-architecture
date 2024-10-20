@@ -50,6 +50,27 @@ describe('DAO', () => {
         expect(mockPrismaDisconnect).toHaveBeenCalled();
     });
 
+    it('should get projects including tasks with queryParams using prisma client', async()=>{
+        const testData = {
+            id: 1,
+        };
+        const mockProject = [{
+            title: 'mock title',
+            description: 'mock desc',
+            status: 'Active',
+            tasks: [{
+                title: 'mock task title',
+                description: 'task desc',
+                status: 'Active',
+            }]
+        }];
+        mockPrismaFindUnique.mockResolvedValueOnce(mockProject);
+        const data = await DAO.getProjectTasks(testData);
+        expect(data.project).toBe(mockProject);
+        expect(mockPrismaFindUnique).toHaveBeenCalledWith({where: testData});
+        expect(mockPrismaDisconnect).toHaveBeenCalled();
+    });
+
     it('should throw an error while fetching projects using prisma client', async()=>{
         const testData = {
             id: 1,

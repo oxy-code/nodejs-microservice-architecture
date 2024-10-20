@@ -21,6 +21,25 @@ async function getProjects(params) {
     }
 }
 
+/**
+ * @function getProjectTasks
+ * It has access to data layer using Prisma ORM client
+ * for more info https://www.prisma.io/docs/orm/prisma-client
+ * @param {*} params 
+ */
+async function getProjectTasks(params) {
+    try {
+        const project = await prisma.project.findUnique({ where: params, include: {tasks: true} });
+        await prisma.$disconnect();
+        return { project };
+    }
+    catch(e) {
+        await prisma.$disconnect();
+        throw new Error('Error fetching projects', {cause: e.stack})
+    }
+}
+
 module.exports = {
     getProjects,
+    getProjectTasks
 };
