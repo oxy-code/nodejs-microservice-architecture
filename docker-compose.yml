@@ -31,6 +31,16 @@ services:
     networks:
       - microservices_network
 
+  create-task-api:
+    # build: ./create-task
+    image: veludeveloper/create-task-api
+    container_name: create-task-api
+    env_file: ./microservices.env
+    environment:
+      - PORT=3003
+    networks:
+      - microservices_network
+
   reverse-proxy:
     # build: ./nginx-proxy
     image: veludeveloper/nginx-proxy
