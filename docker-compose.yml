@@ -51,6 +51,16 @@ services:
     networks:
       - microservices_network
 
+  get-projects-api:
+    # build: ./get-projects
+    image: veludeveloper/get-projects-api
+    container_name: get-projects-api
+    env_file: ./microservices.env
+    environment:
+      - PORT=3009
+    networks:
+      - microservices_network
+
   reverse-proxy:
     # build: ./nginx-proxy
     image: veludeveloper/nginx-proxy
