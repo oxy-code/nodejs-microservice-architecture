@@ -5,8 +5,12 @@ on:
     workflows:
       - SignUpAPI
       - LoginAPI
+      - UpdateProfileAPI
       - CreateProjectAPI
+      - GetProjectsByIdAPI
+      - GetProjectsAPI
       - CreateTaskAPI
+      - DeleteTaskAPI
       - GetTasksAPI
       - NginxReverseProxy
     types: [completed]
