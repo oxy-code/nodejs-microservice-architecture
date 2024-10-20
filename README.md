@@ -28,3 +28,13 @@ It uses cloud by leveraging freely available resources of AWS and also using Git
 |   ----------- |   ------  |
 |   ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=flat&logo=nginx&logoColor=white)   |   [![Nginx ReverseProxy](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/nginx-proxy.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/nginx-proxy.yml)   |
 |   ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat&logo=amazon-aws&logoColor=white) |   [![AWS-EC2 Instance CD](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/ec2.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/ec2.yml)    |
+
+## Tech Stack
+- Node.js
+- Redis cache
+- Jest
+- Docker Compose & Docerfile
+- Github Actions
+
+#### Postman Collection
+Public Url - https://www.postman.com/veludeveloper/microservices
