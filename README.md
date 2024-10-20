@@ -5,7 +5,7 @@ This repository is created, for the demonstration purpose of building Microservi
 It uses cloud by leveraging freely available resources of AWS and also using Github Actions for its CI/CD integrations.
 
 ## Architecture Plan
-[![Architecture](https://github.com/oxy-code/nodejs-microservice-architecture/refs/heads/main/architecture.png)]
+[![Architecture](https://raw.githubusercontent.com/oxy-code/nodejs-microservice-architecture/refs/heads/main/architecture.png)]
 
 ## CI/CD Pipeline Status
 
