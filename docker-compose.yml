@@ -1,7 +1,7 @@
 services:
   create-project-api:
-    build: ./create-project
-    # image: veludeveloper/create-project-api
+    # build: ./create-project
+    image: veludeveloper/create-project-api
     container_name: create-project-api
     env_file: ./microservices.env
     environment:
@@ -10,8 +10,8 @@ services:
       - microservices_network
 
   signup-api:
-    build: ./signup
-    # image: veludeveloper/signup-api
+    # build: ./signup
+    image: veludeveloper/signup-api
     container_name: signup-api
     env_file: ./microservices.env
     environment:
@@ -22,8 +22,8 @@ services:
       - redis-cache
 
   login-api:
-    build: ./login
-    # image: veludeveloper/login-api
+    # build: ./login
+    image: veludeveloper/login-api
     container_name: login-api
     env_file: ./microservices.env
     environment:
@@ -32,8 +32,8 @@ services:
       - microservices_network
 
   reverse-proxy:
-    build: ./nginx-proxy
-    # image: veludeveloper/nginx-proxy
+    # build: ./nginx-proxy
+    image: veludeveloper/nginx-proxy
     container_name: api-proxy
     restart: always
     networks:
