@@ -10,6 +10,7 @@ on:
       - GetProjectsByIdAPI
       - GetProjectsAPI
       - CreateTaskAPI
+      - UpdateTaskAPI
       - DeleteTaskAPI
       - GetTasksAPI
       - NginxReverseProxy
