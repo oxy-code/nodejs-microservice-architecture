@@ -8,9 +8,10 @@ It uses cloud by leveraging freely available resources of AWS and also using Git
 
 |   Endpoints   |   Status  |
 |   -------     |   ------  |
-|   `POST /v1/projects`  |   [![create-project](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-project.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-project.yml)  |
+|   `POST /v1/projects`  |   [![CreateProjectAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-project.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-project.yml)  |
 |   `POST /v1/users`   |   [![SignUp API](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/signup.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/signup.yml) |
 |   `POST /v1/auth/login`   |   [![LoginAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/login.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/login.yml) |
+|   `POST /v1/tasks`   |   [![CreateTaskAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-task.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-task.yml) |
 
 |   Application |   Status  |
 |   ----------- |   ------  |
