@@ -13,6 +13,8 @@ It uses cloud by leveraging freely available resources of AWS and also using Git
 |   `POST /v1/auth/login`   |   [![LoginAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/login.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/login.yml) |
 |   `POST /v1/tasks`   |   [![CreateTaskAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-task.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/create-task.yml) |
 |   `GET /v1/tasks`   |   [![GetTasksAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-tasks.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-tasks.yml) |
+|   `GET /v1/projects`   |   [![GetProjectsAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-projects.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-projects.yml) |
+|   `GET /projects/:id` |   [![GetProjectsByIdAPI](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-project-by-id.yml/badge.svg)](https://github.com/oxy-code/nodejs-microservice-architecture/actions/workflows/get-project-by-id.yml) |
 
 |   Application |   Status  |
 |   ----------- |   ------  |
